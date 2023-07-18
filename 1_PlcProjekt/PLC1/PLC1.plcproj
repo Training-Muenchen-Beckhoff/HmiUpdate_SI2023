@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FileVersion>1.0.0.0</FileVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1207734d-7916-4928-8506-d6988646e15e}</ProjectGuid>
+    <SubObjectsSortedByName>True</SubObjectsSortedByName>
+    <DownloadApplicationInfo>true</DownloadApplicationInfo>
+    <WriteProductVersion>true</WriteProductVersion>
+    <GenerateTpy>false</GenerateTpy>
+    <Name>PLC1</Name>
+    <ProgramVersion>3.1.4024.0</ProgramVersion>
+    <Application>{e16f0ccc-9eb8-4a03-8a5a-44cbbd3c1c47}</Application>
+    <TypeSystem>{4db4620d-3d0d-4a23-bd88-0c5b04caf7ef}</TypeSystem>
+    <Implicit_Task_Info>{43e01497-0bb4-4be5-8295-c2f1fb72dba8}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{2ebb2bc5-ea8b-450c-8d1a-87fd9fa1dd8a}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{35463054-17d6-45fb-8793-b8c32becdeeb}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{91558b43-c22e-4fc8-9acf-3ca7847001b7}</LibraryReferences>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\1_Mapping\DUTs\ST_HmiMapping.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\1_Mapping\HmiMapping.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\2_Add\Class\DUTs\ST_HmiAdditionData.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\2_Add\Class\FB_HmiAddition.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\2_Add\Class\I_HmiAddition.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\2_Add\HmiFunctionAddition.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz\Class\CD_License.TcCD">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz\Class\DUTs\E_LicenseType.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz\Class\DUTs\ST_AllLicensesInfos.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz\Class\DUTs\ST_LicenseDetails.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz\Class\DUTs\ST_LicenseDetailsSmall.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz\Class\DUTs\T_JsonDocLicenseInfoSmall.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz\Class\GetTc3Licenses.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz\Class\I_GetTc3Licenses.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz\HmiFunctionLizenz.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DUTs" />
+    <Folder Include="GVLs" />
+    <Folder Include="HmiUpDateSi2023" />
+    <Folder Include="HmiUpDateSi2023\1_HmiFunctions" />
+    <Folder Include="HmiUpDateSi2023\1_HmiFunctions\1_Mapping\DUTs" />
+    <Folder Include="HmiUpDateSi2023\1_HmiFunctions\2_Add\Class" />
+    <Folder Include="HmiUpDateSi2023\1_HmiFunctions\2_Add\Class\DUTs" />
+    <Folder Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz" />
+    <Folder Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz\Class\DUTs" />
+    <Folder Include="HmiUpDateSi2023\1_HmiFunctions\1_Mapping" />
+    <Folder Include="HmiUpDateSi2023\1_HmiFunctions\2_Add" />
+    <Folder Include="HmiUpDateSi2023\1_HmiFunctions\3_Lizenz\Class" />
+    <Folder Include="HmiUpDateSi2023\2_HmiClassic" />
+    <Folder Include="HmiUpDateSi2023\3_HmiVue3" />
+    <Folder Include="VISUs" />
+    <Folder Include="POUs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderReference Include="Tc2_Standard">
+      <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Standard</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_System">
+      <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_System</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_Utilities">
+      <DefaultResolution>Tc2_Utilities, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Utilities</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_JsonXml">
+      <DefaultResolution>Tc3_JsonXml, * (Beckhoff Automation GmbH)</DefaultResolution>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_Module">
+      <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_Module</Namespace>
+    </PlaceholderReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PLC1.tmc">
+      <SubType>Content</SubType>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions>
+    <PlcProjectOptions>
+      <XmlArchive>
+        <Data>
+          <o xml:space="preserve" t="OptionKey">
+      <v n="Name">"&lt;ProjectRoot&gt;"</v>
+      <d n="SubKeys" t="Hashtable" />
+      <d n="Values" t="Hashtable" />
+    </o>
+        </Data>
+        <TypeList>
+          <Type n="Hashtable">System.Collections.Hashtable</Type>
+          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+          <Type n="String">System.String</Type>
+        </TypeList>
+      </XmlArchive>
+    </PlcProjectOptions>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="HmiFunctionAddition" Id="{80385df8-abfc-4528-8afb-67a861d3b8cd}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM HmiFunctionAddition
+VAR
+    // Instanz
+    fbHmiAddition : FB_HmiAddition;
+
+    // Interface
+    iHmiAddition : I_HmiAddition := fbHmiAddition;
+
+    // Addition Data
+    stHmiAdditionData : ST_HmiAdditionData;
+
+    // Test
+    bTestAdditionProperties : BOOL;    
+    bTestAdditionValue : BOOL;    
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+IF bTestAdditionProperties THEN
+    bTestAdditionProperties := FALSE;
+    // set Properties
+    iHmiAddition.ValueA := stHmiAdditionData.ValueA;
+    iHmiAddition.ValueB := stHmiAdditionData.ValueB;
+    
+    // call
+    iHmiAddition.AdditionWithProperty();
+    
+    // Result
+    stHmiAdditionData.Result := iHmiAddition.Result; 
+END_IF
+
+
+IF bTestAdditionValue THEN
+    bTestAdditionValue := FALSE;
+    stHmiAdditionData.Result := iHmiAddition.AdditionValues(stHmiAdditionData.ValueA, stHmiAdditionData.ValueB);   
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

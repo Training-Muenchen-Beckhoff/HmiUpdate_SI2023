@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="ST_HmiAdditionData" Id="{dfbd9434-cf0b-4684-96a2-928a115705ee}">
+    <Declaration><![CDATA[TYPE ST_HmiAdditionData :
+STRUCT
+    ValueA : UDINT;
+    ValueB : UDINT;
+    Result : UDINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

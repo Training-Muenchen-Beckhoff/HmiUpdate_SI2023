@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="HmiMapping" Id="{1a903113-f364-4d42-bd66-a7dd40dcb6d1}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM HmiMapping
+VAR
+    nNoAutoMapping : INT := 1;
+    
+    {attribute 'TcHmiSymbol.AddSymbol'}
+    nAutoMapping : INT := 2;
+
+    {attribute 'TcHmiSymbol.AddSymbol'}
+    {attribute 'TcHmiSymbol.ReadOnly'}
+    nAutoMappingReadOnly : INT := 3;
+
+    {attribute 'TcHmiSymbol.AddSymbol'}
+    {attribute 'TcHmiSymbol.AddSymbol.Hidden'}
+    nAutoMappingHidden : INT := 4;
+
+    {attribute 'TcHmiSymbol.AddSymbol'}
+    {attribute 'TcHmiSymbol.AddSymbol.UserGroups' := 'GroupWorkshop'}
+    nAutoMappingUserGroup : INT := 5;
+    
+    {attribute 'TcHmiSymbol.AddSymbol'}
+    stAutoMapping : ST_HmiMapping := (sBmk :='AutoMapping', nValue := 20, bStart := TRUE);
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,27 @@
+{
+  "modules": [
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.Framework"
+    },
+    {
+      "type": "Resource",
+      "path": "./Libaries/vue.min.js"
+    },
+    {
+      "type": "Control",
+      "basePath": "./Controls/CardVue",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": ""
+    }
+  ],
+  "provideMetadata": {
+    "toolbox": {
+      "4_HmiKomponentenVue3": {
+        "200": "4_HmiKomponentenVue3"
+      }
+    }
+  },
+  "$schema": ".hmiframework/Schema/Manifest.Schema.json",
+  "apiVersion": 1
+}

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="ST_LicenseDetails" Id="{06dabb1e-34d9-4eb3-9ef2-f01cb9097acf}">
+    <Declaration><![CDATA[TYPE ST_LicenseDetails :
+STRUCT
+    Count : UDINT;
+    Info : ARRAY[1..Tc2_Utilities.nMaxLicenses] OF ST_TcOnlineLicenseInfoDataEx; // Tc2_Utilities.nMaxLicenses
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

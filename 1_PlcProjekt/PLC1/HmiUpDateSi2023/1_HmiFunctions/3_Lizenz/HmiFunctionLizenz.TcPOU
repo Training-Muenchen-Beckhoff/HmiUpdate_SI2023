@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="HmiFunctionLizenz" Id="{42d8a178-73b6-4a56-9ae2-7e8262fc6e9c}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM HmiFunctionLizenz
+VAR
+    fbAllLicenses : GetTc3Licenses(NetId := '');
+    iAllLicenses : I_GetTc3Licenses := fbAllLicenses;
+    bExecute : BOOL := TRUE;
+
+    bGenerateJsonData : BOOL;
+    sJsonDoc      : T_JsonDocLicenseInfoSmall;
+    nCountLicense : UDINT;
+    nType : UINT := 3; // Demo
+    
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+fbAllLicenses.GetAllLicenses(bExecute);
+
+IF bGenerateJsonData THEN
+    bGenerateJsonData := FALSE;
+//    sJsonDoc := fbAllLicenses.JsonDataDemoLicenses;
+    sJsonDoc := iAllLicenses.GetJsonDataLicenses(nType);
+    nCountLicense := fbAllLicenses.CountDemoLicenses;  
+END_IF
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

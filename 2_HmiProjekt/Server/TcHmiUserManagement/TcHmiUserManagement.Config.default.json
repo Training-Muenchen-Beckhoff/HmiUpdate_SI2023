@@ -1,0 +1,28 @@
+{
+    "USERS": {
+        "__SystemAdministrator": {
+            "ALGORITHM": 1,
+            "ENABLED": true,
+            "PASSWORD": "3e058f51c18a5c8dbed8d73e08e67ab534b89ef0e1d88b06f1858340a52de435ec414df0f9a5b85099ae3a9164ea4048ab711a105a995f553d6a3ac2791e7e82",
+            "SALT": "MMArPpSKGaEABXyfOg1vrY0UUne933/qPnqUO6iykmqWspJ4ukdFDJop2302wB9MQhsD0gBBuD/EsYNui6nNlw=="
+        },
+        "__SystemGuest": {
+            "ALGORITHM": 0,
+            "ENABLED": true,
+            "PASSWORD": "",
+            "SALT": ""
+        },
+        "__SystemUser": {
+            "ALGORITHM": 0,
+            "ENABLED": true,
+            "PASSWORD": "",
+            "SALT": ""
+        },
+        "workshop1": {
+            "ALGORITHM": 1,
+            "ENABLED": true,
+            "PASSWORD": "1c287c9e009a8821915cb41f2322ea8b4fa84c456a9cb16b7ec2d49f1dbcbdf3095f1936ca26afa7998ffa43012b0dc1e1784e864a748283ac962cfb50ee957d",
+            "SALT": "t4E5f4AvFUjakKWhFcj6IFgEE2vZd8sP0RevgbMihm85OD0k5INasq+CzlGQB3YDIF7+I8e68eXZwF/hOaZKmw=="
+        }
+    }
+}

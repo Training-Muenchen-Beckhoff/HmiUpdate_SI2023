@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <Itf Name="I_GetTc3Licenses" Id="{068601e2-69d5-4fa3-bb18-2b77f9807bf6}">
+    <Declaration><![CDATA[INTERFACE I_GetTc3Licenses
+]]></Declaration>
+    <Property Name="CountDemoLicenses" Id="{c733dbb1-b946-4593-ada2-99515c3ff18f}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountDemoLicenses : UDINT]]></Declaration>
+      <Get Name="Get" Id="{afd74b6f-1405-4bbc-9059-ba9dafff2b10}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="CountFailedLicenses" Id="{ed0344ec-ff15-43ee-88bd-2f199822a7b5}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountFailedLicenses : UDINT]]></Declaration>
+      <Get Name="Get" Id="{e10114ed-5373-460f-9281-d94754e0fdf1}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="CountInvalidLicenses" Id="{492f5611-bcaa-4d74-bb43-bb409f85be5f}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountInvalidLicenses : UDINT]]></Declaration>
+      <Get Name="Get" Id="{e950c8db-db11-4968-866b-f40041098e15}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="CountOemLicenses" Id="{c5c16b1b-0f48-4014-8cfb-5a13ff00ebaf}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountOemLicenses : UDINT]]></Declaration>
+      <Get Name="Get" Id="{1442f341-1491-4c3d-a1ba-d4d570cf3d80}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="CountPendingLicenses" Id="{3b6f79ba-85cb-4562-8c93-35fc1cc84d05}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountPendingLicenses : UDINT]]></Declaration>
+      <Get Name="Get" Id="{df498358-58ca-45a0-aac8-3dfefade6991}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="CountValidLicenses" Id="{557a029a-6df8-42a7-882b-174c7a02d751}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountValidLicenses : UDINT]]></Declaration>
+      <Get Name="Get" Id="{77707652-4d67-4025-8eab-b1e0ad875676}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Method Name="GetJsonDataLicenses" Id="{117fcf18-f887-44b3-a33b-32d3c2a7a900}">
+      <Declaration><![CDATA[{attribute 'TcRpcEnable'}
+METHOD GetJsonDataLicenses : T_JsonDocLicenseInfoSmall
+VAR_INPUT
+    LicensesType : UINT; //E_LicenseType;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Property Name="JsonDataDemoLicenses" Id="{ff2c73cd-ac2e-4b0a-b19d-ec760604f723}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataDemoLicenses : T_JsonDocLicenseInfoSmall]]></Declaration>
+      <Get Name="Get" Id="{2aca33c6-9075-4bc9-a7db-c6ae6d79a775}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="JsonDataFailedLicenses" Id="{4c5ba42c-3919-4c88-a9a2-52055d1cfae6}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataFailedLicenses : T_JsonDocLicenseInfoSmall]]></Declaration>
+      <Get Name="Get" Id="{c29102f6-f4cb-48f8-96f4-5ab05f1a541b}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="JsonDataInvalidLicenses" Id="{5347d533-cdec-4064-bc99-d24654770875}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataInvalidLicenses : T_JsonDocLicenseInfoSmall]]></Declaration>
+      <Get Name="Get" Id="{5d2e2bae-5cc8-4ba5-8948-0d30870400b5}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="JsonDataOemLicenses" Id="{e8cf9825-077f-4644-980c-dbc046403266}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataOemLicenses : T_JsonDocLicenseInfoSmall]]></Declaration>
+      <Get Name="Get" Id="{84ef8a62-d632-40d4-8b12-7b988fbfd7ad}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="JsonDataPendingLicenses" Id="{6cfc188c-2b5f-497e-9c46-cb8dfbd7235f}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataPendingLicenses : T_JsonDocLicenseInfoSmall]]></Declaration>
+      <Get Name="Get" Id="{2f89a650-c5c8-457d-8a7b-960cb0768f02}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="JsonDataValidLicenses" Id="{36953590-958d-4507-9a38-edaf26de0753}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataValidLicenses : T_JsonDocLicenseInfoSmall]]></Declaration>
+      <Get Name="Get" Id="{925a3cf9-4248-4c7f-9d48-e436c2c0290d}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+  </Itf>
+</TcPlcObject>

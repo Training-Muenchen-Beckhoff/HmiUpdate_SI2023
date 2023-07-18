@@ -1,0 +1,138 @@
+<div id="01_MethodenAdd" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%">
+
+    <div id="co01MethodAdd" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="120" data-tchmi-height-unit="px" data-tchmi-left="100" data-tchmi-left-unit="px" data-tchmi-top="50" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px">
+        <div id="bt01MethodAdd" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="19" data-tchmi-left-unit="px" data-tchmi-text="AdditionWithProperties()" data-tchmi-top="62" data-tchmi-top-unit="px" data-tchmi-width="249" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+        
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "bt01MethodAdd.onPressed",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions._2_HmiProjekt.AdditionWithProperties",
+        "fnParams": [],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+        <div id="ni01AddValue1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="19" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="0" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="61" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-value-font-size="20" data-tchmi-zero-padding="0" data-tchmi-placeholder="Wert" data-tchmi-value="%s%PLC1.HmiFunctionAddition.iHmiAddition::ValueA|BindingMode=TwoWay%/s%">
+            <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                {
+                  "top": 3,
+                  "right": 3,
+                  "bottom": 3,
+                  "left": 3
+                }
+            </script>
+
+        </div>
+        <div id="ni01AddValue2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="109" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="0" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="61" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-value-font-size="20" data-tchmi-zero-padding="0" data-tchmi-placeholder="Wert" data-tchmi-value="%s%PLC1.HmiFunctionAddition.iHmiAddition::ValueB|BindingMode=TwoWay%/s%">
+            <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                {
+                  "top": 3,
+                  "right": 3,
+                  "bottom": 3,
+                  "left": 3
+                }
+            </script>
+
+        </div>
+        <div id="tbl01AddSignPlus" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="87" data-tchmi-left-unit="px" data-tchmi-text="+" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="17" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-family="" data-tchmi-text-font-size="20">
+        </div>
+        <div id="tbl01AddSignAssign" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="175" data-tchmi-left-unit="px" data-tchmi-text="=" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="17" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-size="20">
+        </div>
+        <div id="tbl01AddResult" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="197" data-tchmi-left-unit="px" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="71" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="20" data-tchmi-text="%s%PLC1.HmiFunctionAddition.iHmiAddition::Result%/s%">
+
+            <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                {
+                  "left": 5,
+                  "right": 0,
+                  "top": 0,
+                  "bottom": 0,
+                  "leftUnit": "px",
+                  "rightUnit": "px",
+                  "topUnit": "px",
+                  "bottomUnit": "px"
+                }
+            </script>
+        </div>
+    </div>
+<div id="co01MethodAddValue" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="120" data-tchmi-height-unit="px" data-tchmi-left="100" data-tchmi-left-unit="px" data-tchmi-top="220" data-tchmi-top-unit="px" data-tchmi-width="280" data-tchmi-width-unit="px">
+<div id="bt01MethodAddValue" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="16" data-tchmi-left-unit="px" data-tchmi-text="AdditionValue()" data-tchmi-top="62" data-tchmi-top-unit="px" data-tchmi-width="249" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+        
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "bt01MethodAddValue.onPressed",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions._2_HmiProjekt.AdditionValue",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:general#/definitions/UDINT",
+            "symbolExpression": "%i%n01AddValue1_Value%/i%"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:general#/definitions/UDINT",
+            "symbolExpression": "%i%n01AddValue2_Value%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+        <div id="ni01AddValue1_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="19" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="0" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="61" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-value-font-size="20" data-tchmi-zero-padding="0" data-tchmi-placeholder="Wert" data-tchmi-value="%i%n01AddValue1_Value|BindingMode=TwoWay%/i%">
+            <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                {
+                  "top": 3,
+                  "right": 3,
+                  "bottom": 3,
+                  "left": 3
+                }
+            </script>
+
+        </div>
+        <div id="ni01AddValue2_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="109" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="0" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="61" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-value-font-size="20" data-tchmi-zero-padding="0" data-tchmi-placeholder="Wert" data-tchmi-value="%i%n01AddValue2_Value|BindingMode=TwoWay%/i%">
+            <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                {
+                  "top": 3,
+                  "right": 3,
+                  "bottom": 3,
+                  "left": 3
+                }
+            </script>
+
+        </div>
+        <div id="tbl01AddSignPlus_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="87" data-tchmi-left-unit="px" data-tchmi-text="+" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="17" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-family="" data-tchmi-text-font-size="20">
+        </div>
+        <div id="tbl01AddSignAssign_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="175" data-tchmi-left-unit="px" data-tchmi-text="=" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="17" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-size="20">
+        </div>
+        <div id="tbl01AddResult_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="197" data-tchmi-left-unit="px" data-tchmi-top="26" data-tchmi-top-unit="px" data-tchmi-width="71" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="20" data-tchmi-text="%s%PLC1.HmiFunctionAddition.iHmiAddition::Result%/s%">
+
+            <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                {
+                  "left": 5,
+                  "right": 0,
+                  "top": 0,
+                  "bottom": 0,
+                  "leftUnit": "px",
+                  "rightUnit": "px",
+                  "topUnit": "px",
+                  "bottomUnit": "px"
+                }
+            </script>
+        </div>
+    </div>
+</div>

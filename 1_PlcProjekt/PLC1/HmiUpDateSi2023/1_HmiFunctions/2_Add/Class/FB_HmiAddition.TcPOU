@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_HmiAddition" Id="{dd570e61-8f5d-44d0-b039-dffc348d7193}" SpecialFunc="None">
+    <Declaration><![CDATA[{attribute 'TcRpcEnable'}
+FUNCTION_BLOCK PUBLIC FB_HmiAddition IMPLEMENTS I_HmiAddition
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+    _HmiData : ST_HmiAdditionData;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Folder Name="private" Id="{f5b7e029-a2f8-437e-89fa-185a012b4774}" />
+    <Method Name="Addition" Id="{7b51ef05-f95f-4817-a905-ddbcbcb9c7a1}" FolderPath="private\">
+      <Declaration><![CDATA[METHOD PRIVATE Addition : UDINT
+VAR_INPUT
+	nValueA	: UDINT;
+	nValueB	: UDINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[ Addition := nValueA + nValueB;
+ ]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="AdditionValues" Id="{3e081d8f-7027-4fee-a3d6-650d6d820887}">
+      <Declaration><![CDATA[{attribute 'TcRpcEnable'}
+METHOD AdditionValues : UDINT
+VAR_INPUT
+	nValueA	: UDINT;
+	nValueB	: UDINT;
+END_VAR
+VAR
+    nReturn : UDINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+ // set property
+ ValueA := nValueA;
+ ValueB := nValueB;
+
+ // call method
+ nReturn := Addition(nValueA, nValueB);
+ 
+ // set Result
+ _HmiData.Result := nReturn;
+ 
+ // return
+ AdditionValues := nReturn;
+  ]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="AdditionWithProperty" Id="{30cd8bab-b802-4cfb-959c-fdff584d9fcf}">
+      <Declaration><![CDATA[{attribute 'TcRpcEnable'}
+METHOD PUBLIC AdditionWithProperty : UDINT
+VAR_INPUT
+END_VAR
+VAR
+    nReturn : UDINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+ // call method
+ nReturn := Addition(ValueA, ValueB);
+ 
+ // set Result
+ _HmiData.Result := nReturn;
+ 
+ // return
+ AdditionWithProperty := nReturn;
+ ]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="Result" Id="{be3950fe-0d83-4859-9768-72d3fd24fdc0}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Result : UDINT
+]]></Declaration>
+      <Get Name="Get" Id="{6cedc53b-b6f6-47dc-8173-fdbc8f6d510b}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+Result := _HmiData.Result;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="ValueA" Id="{44441e03-d92a-4782-b65c-552fe711decb}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY ValueA : UDINT
+]]></Declaration>
+      <Get Name="Get" Id="{058360a2-ae5a-49ce-81af-31bd9eeead36}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+ValueA := _HmiData.ValueA;
+]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{7c09edab-b4cf-4844-bcef-8488b15628b1}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+_HmiData.ValueA := ValueA;
+]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="ValueB" Id="{96485bf2-4dc8-41a9-8805-f557563225e2}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY ValueB : UDINT
+]]></Declaration>
+      <Get Name="Get" Id="{26340080-bd98-413b-a631-91baac8f7d95}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+ValueB := _HmiData.ValueB;
+]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{55dc29e7-0833-4b30-a0ae-178693ebc510}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+_HmiData.ValueB := ValueB;
+]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+  </POU>
+</TcPlcObject>

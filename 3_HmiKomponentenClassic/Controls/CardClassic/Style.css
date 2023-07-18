@@ -1,0 +1,87 @@
+/* General theme independed control css. */
+:root {
+    --card-name-fontsize: 2.1em;
+    --card-value-fontsize: 3.5em;
+    --card-border-color: linear-gradient(81.67deg, #0084f4 0%, #1a4da2 100%);
+}
+
+.TcHmi_Controls_HmiUpdateSi2023Classic_CardClassic {
+	overflow: unset;
+}
+
+.TcHmi_Controls_HmiUpdateSi2023Classic_CardClassic-Template {
+	width: 100%;
+	height: 100%;
+}
+
+.tchmi-control-card {
+    width: 100%;
+    height: 100%;
+    border: .5px solid rgb(231, 231, 231);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.tchmi-control-card::before {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    content: "";
+    border-radius: 10px 10px 0px 0px;
+    background: var(--card-border-color);
+}
+
+.tchmi-control-card:active {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+
+.tchmi-control-container {
+    position: relative;
+    padding: 10px;
+    height: 100%;
+}
+
+.tchmi-control-name {
+    color: #6c6c6c;
+    font-size: var(--card-name-fontsize);
+    padding: 4px 8px;
+    text-align: center;
+}
+
+.tchmi-control-value {
+    font-weight: 600;
+    font-size: var(--card-value-fontsize);
+    color: #323c43;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* If the main use for this control is interaction
+    uncomment the following lines to give user feedback:
+    This overlays the whole control with a white color
+    and changes the mouse cursor */
+
+/*
+.TcHmi_Controls_HmiUpdateSi2023Classic_CardClassic.TcHmi_Controls_System_TcHmiControl-operate-disallowed::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 100;
+    cursor: not-allowed;
+}
+*/

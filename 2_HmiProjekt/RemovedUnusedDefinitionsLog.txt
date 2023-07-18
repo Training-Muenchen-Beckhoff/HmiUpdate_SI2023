@@ -1,0 +1,8 @@
+11.07.2023 10:15:38 2_HmiProjekt: remove definitions
+-----------------------------------------------------------
+PLC1.METHOD-RETURNING-T_JsonDocLicenseInfoSmall-PARAMETERS-LicensesType-E_LicenseType
+-----------------------------------------------------------
+11.07.2023 10:16:55 2_HmiProjekt: remove definitions
+-----------------------------------------------------------
+PLC1.METHOD-RETURNING-T_JsonDocLicenseInfoSmall-PARAMETERS-LicensesType-UINT
+-----------------------------------------------------------

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="ST_HmiMapping" Id="{98565f82-f929-4e8c-a037-ed6cba654ba7}">
+    <Declaration><![CDATA[TYPE ST_HmiMapping :
+STRUCT
+    bStart : BOOL;
+    bStop: BOOL;
+    nValue : INT;
+    sBmk : STRING;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

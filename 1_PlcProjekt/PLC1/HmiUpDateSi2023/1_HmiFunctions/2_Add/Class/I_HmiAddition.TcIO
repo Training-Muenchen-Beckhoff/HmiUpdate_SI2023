@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <Itf Name="I_HmiAddition" Id="{695386f6-7faa-4b14-ab59-d6ab43ee5353}">
+    <Declaration><![CDATA[INTERFACE I_HmiAddition
+]]></Declaration>
+    <Method Name="AdditionValues" Id="{05819266-f3e9-44ed-bd29-35ca2c3babcc}">
+      <Declaration><![CDATA[{attribute 'TcRpcEnable'}
+METHOD AdditionValues : UDINT
+VAR_INPUT
+    nValueA : UDINT;
+    nValueB : UDINT;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="AdditionWithProperty" Id="{61fc5b0d-e730-48b5-a8f0-03b2e6011cda}">
+      <Declaration><![CDATA[{attribute 'TcRpcEnable'}
+METHOD AdditionWithProperty : UDINT
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Property Name="Result" Id="{d6c62305-bcb2-4683-94df-e2bb8bf73d6f}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Result : UDINT]]></Declaration>
+      <Get Name="Get" Id="{470fabd2-949f-4deb-8ed2-e5b8559c2256}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="ValueA" Id="{2fa85024-2ba1-49e7-9b0d-8629c228716d}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY ValueA : UDINT]]></Declaration>
+      <Get Name="Get" Id="{a096a4a8-c2a9-4a21-939e-7fb57bfe0cc3}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{40aaaa5a-e739-40f4-bc2d-f98a99be4389}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+      </Set>
+    </Property>
+    <Property Name="ValueB" Id="{972ad7a2-186d-4ccb-8541-5716bc47e77a}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY ValueB : UDINT]]></Declaration>
+      <Get Name="Get" Id="{e0f0de0d-4ec8-4f2a-a5b1-22233e325fc0}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{44177cb4-3c8f-4f37-a67d-12187ed2f3a1}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+      </Set>
+    </Property>
+  </Itf>
+</TcPlcObject>

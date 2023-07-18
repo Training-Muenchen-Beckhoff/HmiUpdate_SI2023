@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="GetTc3Licenses" Id="{cfd7b941-6a28-41a7-9746-9138318a2e14}" SpecialFunc="None">
+    <Declaration><![CDATA[{attribute 'TcRpcEnable'}
+FUNCTION_BLOCK GetTc3Licenses IMPLEMENTS I_GetTc3Licenses
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+VAR
+    // Internal
+    fbGetLicensesEx : FB_GetLicensesEx;
+    stAllLicensesInfos : ST_AllLicensesInfos;
+    
+    _sNetId   : T_AmsNetId;
+    
+    _fbJson         : FB_JsonSaxWriter;
+    _fbJsonDataType : FB_JsonReadWriteDataType;
+    
+END_VAR
+VAR
+    stInfoData : ST_LicenseDetailsSmall;
+    sReturn : STRING(30_000);
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+// include: Tc2_Utilities
+// Realtime -> Global Max Stack = 2048kb
+]]></ST>
+    </Implementation>
+    <Folder Name="Constructor" Id="{c24cc863-bf3d-4d9a-b529-7915f882c371}" />
+    <Folder Name="ITFs" Id="{19d2cf31-f768-4052-88da-48e106115782}">
+      <Folder Name="Methods" Id="{4b0d5003-f680-47dd-b2c8-74d43e12db3f}" />
+      <Folder Name="Properties" Id="{f8f9f002-44e2-418d-aea9-f083ba2761de}" />
+    </Folder>
+    <Folder Name="Privat" Id="{b32bcc06-c92e-42cf-8a92-22c168ff433d}" />
+    <Folder Name="Public" Id="{4337f8a3-7639-41e6-9682-8f6196464927}" />
+    <Property Name="CountDemoLicenses" Id="{20d6f0c3-fbb7-4f3e-85b1-635f1220d2b6}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountDemoLicenses : UDINT
+]]></Declaration>
+      <Get Name="Get" Id="{13f50410-426c-43bc-8385-eaa7b88a808a}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+CountDemoLicenses := stAllLicensesInfos.DemoLicenses.Count;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="CountFailedLicenses" Id="{af81c4bf-b0b3-483d-b267-47d4e653d0ea}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountFailedLicenses : UDINT
+]]></Declaration>
+      <Get Name="Get" Id="{4f60590c-a6b2-44cc-98bc-d62ee1751929}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+CountFailedLicenses := stAllLicensesInfos.FailedLicenses.Count;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="CountInvalidLicenses" Id="{3aff4063-d7d0-4fd1-b583-691ff5c09428}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountInvalidLicenses : UDINT
+]]></Declaration>
+      <Get Name="Get" Id="{b08a783f-f741-4a47-8e92-c7e949fa423e}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+CountInvalidLicenses := stAllLicensesInfos.InvalidLicenses.Count;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="CountOemLicenses" Id="{afe53d97-8daa-47ab-972f-311227ad3f60}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountOemLicenses : UDINT
+]]></Declaration>
+      <Get Name="Get" Id="{2fa5a1c5-5546-4352-a9c3-9a03d90b0409}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+CountOemLicenses := stAllLicensesInfos.OemLicenses.Count;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="CountPendingLicenses" Id="{eef9b484-cf23-4b7a-a075-2f25bde1b073}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountPendingLicenses : UDINT
+]]></Declaration>
+      <Get Name="Get" Id="{b0ce11ed-382b-469e-aa73-b7fa5a188ff5}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+CountPendingLicenses := stAllLicensesInfos.PendingLicenses.Count;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="CountValidLicenses" Id="{a288c006-012a-40f7-a78e-536a2f09fc17}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY CountValidLicenses : UDINT
+]]></Declaration>
+      <Get Name="Get" Id="{fe2beb57-b74b-41be-8b19-cdced04ac034}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+CountValidLicenses := stAllLicensesInfos.ValidLicenses.Count;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="FB_init" Id="{ade55d3e-d3cb-48c2-9bbd-d9dcfa7526da}" FolderPath="Constructor\">
+      <Declaration><![CDATA[METHOD FB_init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+    NetId   : T_AmsNetId;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+_sNetId := NetId;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GetAllLicenses" Id="{b488a829-a271-42a3-be77-7e8d6d852a83}" FolderPath="Public\">
+      <Declaration><![CDATA[METHOD PUBLIC GetAllLicenses : HRESULT
+VAR_INPUT
+    bExecute : REFERENCE to BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF bExecute THEN
+    fbGetLicensesEx(
+        bExecute:= bExecute, 
+        tTimeout:= , 
+        sNetId:= _sNetId, 
+        bBusy=> , 
+        bError=> , 
+        nErrorId=> , 
+        nValidLicenses=> stAllLicensesInfos.ValidLicenses.Count, 
+        aValidLicenses=> stAllLicensesInfos.ValidLicenses.Info, 
+        nPendingLicenses=> stAllLicensesInfos.PendingLicenses.Count, 
+        aPendingLicenses=> stAllLicensesInfos.PendingLicenses.Info, 
+        nDemoLicenses=> stAllLicensesInfos.DemoLicenses.Count, 
+        aDemoLicenses=> stAllLicensesInfos.DemoLicenses.Info, 
+        nOemLicenses=> stAllLicensesInfos.OemLicenses.Count, 
+        aOemLicenses=> stAllLicensesInfos.OemLicenses.Info, 
+        nFailedLicenses=> stAllLicensesInfos.FailedLicenses.Count, 
+        aFailedLicenses=> stAllLicensesInfos.FailedLicenses.Info, 
+        nInvalidLicenses=> stAllLicensesInfos.InvalidLicenses.Count, 
+        aInvalidLicenses=> stAllLicensesInfos.InvalidLicenses.Info);
+    
+    IF NOT fbGetLicensesEx.bBusy THEN
+        bExecute := FALSE;
+	END_IF
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GetJsonDataLicenses" Id="{5e3341b4-e25b-4a7d-90d0-d8a2857110ab}" FolderPath="ITFs\Methods\">
+      <Declaration><![CDATA[{attribute 'TcRpcEnable'}
+METHOD GetJsonDataLicenses : T_JsonDocLicenseInfoSmall
+VAR_INPUT
+	LicensesType	: UINT; //E_LicenseType;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+CASE LicensesType OF
+    E_LicenseType.NoType:
+        GetJsonDataLicenses := '';
+    E_LicenseType.ValidLicenses:
+        GetJsonDataLicenses := JsonDataValidLicenses;
+    E_LicenseType.PendingLicenses:
+        GetJsonDataLicenses := JsonDataPendingLicenses;
+    E_LicenseType.DemoLicenses:
+        GetJsonDataLicenses := JsonDataDemoLicenses;
+    E_LicenseType.OemLicenses:
+        GetJsonDataLicenses := JsonDataOemLicenses;
+    E_LicenseType.FailedLicenses:
+        GetJsonDataLicenses := JsonDataFailedLicenses;
+    E_LicenseType.InvalidLicenses:
+        GetJsonDataLicenses := JsonDataInvalidLicenses;
+END_CASE
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GetJsonLicenseDetailSmall" Id="{ada069cf-679a-4736-b35a-d44a4bfeb755}" FolderPath="Privat\">
+      <Declaration><![CDATA[METHOD PRIVATE GetJsonLicenseDetailSmall : HRESULT
+VAR_INPUT
+    AdrLicense : XWORD;
+    refJsonDoc : REFERENCE TO STRING(30_000);
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+//Tc2_System.MEMCPY(ADR(stInfoData), ADR(stAllLicensesInfos.ValidLicenses), SIZEOF(stInfoData));
+Tc2_System.MEMCPY(ADR(stInfoData), AdrLicense, SIZEOF(stInfoData));
+
+_fbJson.ResetDocument();
+_fbJsonDataType.AddJsonValueFromSymbol(_fbJson, 'ST_LicenseDetailsSmall', SIZEOF(stInfoData), ADR(stInfoData));
+_fbJson.CopyDocument(sReturn, SIZEOF(sReturn));
+
+refJsonDoc := sReturn;
+
+GetJsonLicenseDetailSmall := S_OK;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="JsonDataDemoLicenses" Id="{096ffaee-98b6-48f5-ad1b-af90f111ad2d}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataDemoLicenses : T_JsonDocLicenseInfoSmall
+]]></Declaration>
+      <Get Name="Get" Id="{f498a333-1cc8-4603-aadf-972415267fd7}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+GetJsonLicenseDetailSmall(ADR(stAllLicensesInfos.DemoLicenses), JsonDataDemoLicenses);
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="JsonDataFailedLicenses" Id="{cccbb0d0-5fd6-4913-82d3-338099338081}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataFailedLicenses : T_JsonDocLicenseInfoSmall
+]]></Declaration>
+      <Get Name="Get" Id="{aab43fac-7643-48a1-ac52-0b266bc94a0e}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+GetJsonLicenseDetailSmall(ADR(stAllLicensesInfos.FailedLicenses), JsonDataFailedLicenses);
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="JsonDataInvalidLicenses" Id="{80bed6d8-0289-4155-9900-c4f715bdb5d1}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataInvalidLicenses : T_JsonDocLicenseInfoSmall
+]]></Declaration>
+      <Get Name="Get" Id="{2bb90570-6a99-4cb1-850f-f3ba7b683c26}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+GetJsonLicenseDetailSmall(ADR(stAllLicensesInfos.InvalidLicenses), JsonDataInvalidLicenses);
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="JsonDataOemLicenses" Id="{c5929895-3b69-4a6e-a1d4-3ca48fab32ef}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataOemLicenses : T_JsonDocLicenseInfoSmall
+]]></Declaration>
+      <Get Name="Get" Id="{66d3db60-fdbc-4bb9-bcaa-5eb3914d10ef}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+GetJsonLicenseDetailSmall(ADR(stAllLicensesInfos.OemLicenses), JsonDataOemLicenses);
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="JsonDataPendingLicenses" Id="{25d96807-1724-4604-9623-e371bb75103a}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataPendingLicenses : T_JsonDocLicenseInfoSmall
+]]></Declaration>
+      <Get Name="Get" Id="{e0cb06a6-246a-46d5-94a6-ac9146b51690}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+GetJsonLicenseDetailSmall(ADR(stAllLicensesInfos.PendingLicenses), JsonDataPendingLicenses);
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="JsonDataValidLicenses" Id="{f5c7c54b-acf4-4d18-8120-6a540700d3b0}" FolderPath="ITFs\Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY JsonDataValidLicenses : T_JsonDocLicenseInfoSmall
+]]></Declaration>
+      <Get Name="Get" Id="{3c32e63a-e260-4c0d-83de-19604e6414e2}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+GetJsonLicenseDetailSmall(ADR(stAllLicensesInfos.ValidLicenses), JsonDataValidLicenses);
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+  </POU>
+</TcPlcObject>
