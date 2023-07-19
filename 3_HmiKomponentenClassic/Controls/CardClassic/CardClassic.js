@@ -111,7 +111,6 @@ var TcHmi;
                  */
                 setName(valueNew) {
                     var convertedValue = TcHmi.ValueConverter.toString(valueNew);
-                    var convertedValue = valueNew;
 
                     if (convertedValue === null) {
                         convertedValue = this.getAttributeDefaultValueInternal('Name');
@@ -149,7 +148,6 @@ var TcHmi;
                  */
                 setValue(valueNew) {
                     var convertedValue = TcHmi.ValueConverter.toString(valueNew);
-                    var convertedValue = valueNew;
 
                     if (convertedValue === null) {
                         convertedValue = this.getAttributeDefaultValueInternal('Value');
